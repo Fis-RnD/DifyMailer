@@ -2,7 +2,7 @@ name: Run Dify Birthday Workflow
 
 on:
   schedule:
-    - cron:  '0 4 * * *'   # 02:00 UTC = 09:00 ICT
+    - cron:  '07 4 * * *'   # 02:00 UTC = 09:00 ICT
 
 jobs:
   call-dify:
@@ -13,5 +13,7 @@ jobs:
           curl -sS -X POST \
             -H "Authorization: Bearer ${{ secrets.DIFY_API_KEY }}" \
             -H "Content-Type: application/json" \
-            -d '{}' \
+            -d '{"inputs": {},
+    "response_mode": "streaming",
+    "user": "abc-123"}' \
             https://api.dify.ai/v1/workflows/run
