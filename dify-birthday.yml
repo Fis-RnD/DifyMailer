@@ -2,7 +2,7 @@ name: Run Dify Birthday Workflow
 
 on:
   schedule:
-    - cron:  '15 4 * * *'   # 02:00 UTC = 09:00 ICT
+    - cron:  '* * * * *'   # 02:00 UTC = 09:00 ICT
 
 jobs:
   call-dify:
