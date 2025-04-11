@@ -1,0 +1,19 @@
+# File: .github/workflows/dify-birthday.yml
+name: Run Dify Birthday Workflow
+
+on:
+  schedule:
+    - cron:  '* * * * *'    # chạy mỗi phút (test)
+  workflow_dispatch:        # thêm nút "Run workflow" trong UI GitHub
+
+jobs:
+  call-dify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Dify Workflow
+        run: |
+          curl -sS -X POST \
+            -H "Authorization: Bearer ${{ secrets.DIFY_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{"inputs": {}, "response_mode": "streaming", "user": "abc-123"}' \
+            https://api.dify.ai/v1/workflows/run
