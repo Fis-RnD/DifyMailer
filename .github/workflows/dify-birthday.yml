@@ -3,7 +3,7 @@ name: Run Dify Birthday Workflow
 
 on:
   schedule:
-    - cron:  '0 1 * * *'    # chạy 08:00
+    - cron:  '0 2 * * *'    # chạy 09:00
   workflow_dispatch:        # thêm nút "Run workflow" trong UI GitHub
 
 jobs:
